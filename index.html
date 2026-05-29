@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unsubscribe — FoundCashNow</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%235C3DE4'/%3E%3Ctext x='50%25' y='52%25' font-family='Arial,sans-serif' font-size='38' font-weight='800' fill='white' text-anchor='middle' dominant-baseline='middle'%3EF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mada:wght@500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --push-purple: #5C3DE4;
+      --dark-purple: #312679;
+      --clear: #F1F1F1;
+      --ink: #1E1E1F;
+      --ink-2: #4a4a4d;
+      --line: #d2d6e0;
+      --surface: #FFFFFF;
+      --purple-tint: #e6e2f8;
+      --link-blue: #1d4ed8;
+      --link-blue-dark: #1e3a8a;
+      --blue-tint: #dbeafe;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; background: var(--surface); }
+    body {
+      margin: 0;
+      font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ink);
+      background: var(--clear);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .layout, .simple-layout { flex: 1 0 auto; }
+    .site-footer { flex-shrink: 0; }
+    h1, h2, h3 { font-family: 'Mada', sans-serif; margin: 0 0 12px; line-height: 1.25; color: var(--ink); }
+    p, li { margin: 0 0 16px; }
+    a { color: var(--link-blue); text-decoration: underline; text-underline-offset: 2px; }
+    a:hover { color: var(--link-blue-dark); }
+    a:focus-visible { outline: 2px solid var(--link-blue); outline-offset: 2px; border-radius: 4px; }
+    main a { color: var(--link-blue); }
+    main a:hover { color: var(--link-blue-dark); }
+
+    .skip-link {
+      position: absolute; left: -999px; top: 0;
+      background: var(--link-blue); color: white;
+      padding: 8px 12px; border-radius: 8px; z-index: 100; font-weight: 600;
+    }
+    .skip-link:focus { left: 8px; top: 8px; }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      height: 64px;
+      display: flex; align-items: center;
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto; width: 100%;
+      padding: 0 24px;
+      display: flex; align-items: center;
+    }
+    .brand {
+      font-family: 'Mada', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .brand:hover { color: var(--ink); }
+
+    /* Layout */
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+    }
+    .toc {
+      position: sticky;
+      top: 88px;
+      align-self: start;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+    }
+    .toc h2 {
+      font-family: 'Mada', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+      margin: 0 0 12px;
+    }
+    .toc ol { list-style: none; padding: 0; margin: 0; }
+    .toc li { margin: 0 0 4px; }
+    .toc a {
+      display: block;
+      padding: 6px 10px;
+      font-size: 13px;
+      color: var(--ink-2);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      border-radius: 0 6px 6px 0;
+      transition: all 0.15s;
+    }
+    .toc a:hover,
+    .toc a:focus-visible {
+      color: var(--link-blue);
+      background: var(--blue-tint);
+      border-left-color: var(--link-blue);
+    }
+
+    article {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 40px 36px;
+      max-width: 720px;
+    }
+    article > h1 {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      margin: 0 0 24px;
+      letter-spacing: -0.01em;
+      text-align: left;
+    }
+    article section { margin-bottom: 32px; scroll-margin-top: 80px; }
+    article section:last-child { margin-bottom: 0; }
+    article h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 12px;
+      padding-top: 8px;
+    }
+    article h3 { font-size: 17px; font-weight: 600; margin-top: 20px; }
+    article p, article li { color: var(--ink); line-height: 1.65; }
+    article ul, article ol { padding-left: 22px; margin-bottom: 16px; }
+    article li { margin-bottom: 6px; }
+    article .intro {
+      font-size: 17px;
+      color: var(--ink);
+      padding: 16px 20px;
+      background: var(--purple-tint);
+      border-radius: 8px;
+      border-left: 3px solid var(--push-purple);
+      margin-bottom: 24px;
+    }
+    .contact-block {
+      padding: 16px 20px;
+      background: var(--purple-tint);
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+    .contact-block p { margin: 0 0 4px; }
+
+    /* Form success state */
+    .form-success {
+      text-align: center;
+      padding: 24px 0;
+    }
+    .form-success__check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: #1cb526;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+    .form-success__check svg { width: 36px; height: 36px; }
+    .form-success h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 8px;
+    }
+    .form-success p { color: var(--ink-2); }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px;
+      background: var(--surface);
+    }
+    .footer-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: flex; flex-direction: column;
+      gap: 12px; align-items: center; text-align: center;
+    }
+    .footer-inner p { margin: 0; font-size: 13px; color: var(--ink-2); }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; }
+    .footer-links a {
+      color: var(--ink-2); text-decoration: none;
+      padding: 0 12px; border-right: 1px solid var(--line);
+      font-size: 13px;
+    }
+    .footer-links a:last-child { border-right: none; }
+    .footer-links a:hover { color: var(--link-blue); }
+
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 24px 16px 48px; }
+      .toc { display: none; }
+      article { padding: 28px 22px; border-radius: 12px; }
+    }
+
+    .simple-layout {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+    .simple-layout article {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 40px 36px;
+    }
+    @media (max-width: 640px) {
+      .simple-layout article { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="https://www.foundcashnow.com/" class="brand">FoundCashNow</a>
+    </div>
+  </header>
+
+  <div class="simple-layout">
+    <main id="main">
+      <article>
+        <h1 id="unsub-heading">Unsubscribe</h1>
+
+        <div id="unsub-wrap">
+          <p style="color:var(--ink-2);margin:0 0 24px;">Unsubscribe from this list by entering your email and/or phone number below and clicking &ldquo;Unsubscribe&rdquo;.</p>
+          <form id="unsub-form" method="post" action="#" novalidate>
+            <input type="hidden" name="pageId" value="">
+            <input type="hidden" name="pageVariant" value="">
+            <div style="margin-bottom:14px;">
+              <label for="email" style="display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px;">Email Address</label>
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Email Address" style="width:100%;height:52px;padding:0 14px;border:1.5px solid var(--line);border-radius:8px;font-size:16px;font-family:inherit;">
+            </div>
+            <div style="margin-bottom:18px;">
+              <label for="phone_number" style="display:block;font-size:13px;font-weight:600;color:var(--ink-2);margin-bottom:6px;">Phone Number</label>
+              <input id="phone_number" name="phone_number" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone Number" style="width:100%;height:52px;padding:0 14px;border:1.5px solid var(--line);border-radius:8px;font-size:16px;font-family:inherit;">
+            </div>
+            <p class="field-error" id="unsub-error" role="alert" style="display:none;color:#b91c1c;font-size:13px;margin:0 0 14px;font-weight:500;">Please enter your email address or phone number.</p>
+            <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 28px;background:var(--link-blue);color:white;border:none;border-radius:8px;font-family:'Mada',sans-serif;font-size:16px;font-weight:600;letter-spacing:0.02em;cursor:pointer;">Unsubscribe</button>
+          </form>
+        </div>
+
+        <div id="unsub-success" class="form-success" hidden>
+          <div class="form-success__check" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2>Thank You!</h2>
+          <p>You have been removed from this list.</p>
+        </div>
+
+        <script>
+          (function() {
+            var form = document.getElementById('unsub-form');
+            if (!form) return;
+            var email = document.getElementById('email');
+            var phone = document.getElementById('phone_number');
+            var err = document.getElementById('unsub-error');
+            function clearErr() {
+              err.style.display = 'none';
+              email.style.borderColor = '';
+              phone.style.borderColor = '';
+            }
+            email.addEventListener('input', clearErr);
+            phone.addEventListener('input', clearErr);
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              var hasEmail = (email.value || '').trim() !== '';
+              var hasPhone = (phone.value || '').trim() !== '';
+              if (!hasEmail && !hasPhone) {
+                err.style.display = 'block';
+                email.style.borderColor = '#b91c1c';
+                phone.style.borderColor = '#b91c1c';
+                email.focus();
+                return;
+              }
+              document.getElementById('unsub-wrap').hidden = true;
+              document.getElementById('unsub-heading').hidden = true;
+              var s = document.getElementById('unsub-success');
+              s.hidden = false;
+              s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+          })();
+        </script>
+      </article>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://www.foundcashnow.com/privacy-policy/">Privacy Policy</a>
+        <a href="https://www.foundcashnow.com/ccpa/">CCPA</a>
+        <a href="https://www.foundcashnow.com/terms-conditions/">Terms</a>
+        <a href="https://www.foundcashnow.com/contact/">Contact</a>
+      </div>
+      <p>© 2026 FoundCashNow</p>
+    </div>
+  </footer>
+</body>
+</html>
